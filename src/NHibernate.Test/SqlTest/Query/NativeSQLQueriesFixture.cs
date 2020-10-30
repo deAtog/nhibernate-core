@@ -680,7 +680,7 @@ namespace NHibernate.Test.SqlTest.Query
 			public bool TransformTupleCalled { get; set; }
 			public bool TransformListCalled { get; set; }
 
-			public object TransformTuple(object[] tuple, string[] aliases)
+			public object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 			{
 				this.TransformTupleCalled = true;
 				return tuple;

@@ -8,7 +8,7 @@ namespace NHibernate.Transform
 	{
 		internal static readonly AliasToEntityMapResultTransformer Instance = new AliasToEntityMapResultTransformer();
 
-		public override object TransformTuple(object[] tuple, string[] aliases)
+		public override object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 		{
 			IDictionary result = new Hashtable();
 			for (int i = 0; i < tuple.Length; i++)

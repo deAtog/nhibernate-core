@@ -20,7 +20,7 @@ namespace NHibernate.Linq
 
 		#region IResultTransformer Members
 
-		public object TransformTuple(object[] tuple, string[] aliases)
+		public object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 		{
 			return _itemTransformation == null ? tuple : _itemTransformation(tuple);
 		}

@@ -78,7 +78,7 @@ namespace NHibernate.Hql
 			}
 			else
 			{
-				return transformer.TransformTuple(row, queryReturnAliases);
+				return transformer.TransformTuple(row, queryReturnAliases, null);
 			}
 		}
 

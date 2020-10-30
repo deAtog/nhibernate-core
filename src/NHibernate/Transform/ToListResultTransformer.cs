@@ -13,7 +13,7 @@ namespace NHibernate.Transform
 	{
 		internal static readonly ToListResultTransformer Instance = new ToListResultTransformer();
 
-		public object TransformTuple(object[] tuple, string[] aliases)
+		public object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 		{
 			return new List<object>(tuple);
 		}

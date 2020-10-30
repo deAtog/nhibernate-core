@@ -13,7 +13,7 @@ namespace NHibernate.Transform
 		private static readonly INHibernateLogger log = NHibernateLogger.For(typeof(DistinctRootEntityResultTransformer));
 		internal static readonly DistinctRootEntityResultTransformer Instance = new DistinctRootEntityResultTransformer();
 
-		public object TransformTuple(object[] tuple, string[] aliases)
+		public object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 		{
 			return tuple[tuple.Length - 1];
 		}

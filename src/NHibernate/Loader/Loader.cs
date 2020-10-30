@@ -434,11 +434,16 @@ namespace NHibernate.Loader
 			var result = forcedResultTransformer == null
 					   ? GetResultColumnOrRow(row, queryParameters.ResultTransformer, resultSet, session)
 					   : forcedResultTransformer.TransformTuple(GetResultRow(row, resultSet, session),
-																ResultRowAliases);
+																ResultRowAliases, GetResultTypes());
 
 			queryCacheResultBuilder?.AddRow(result, row, collections);
 
 			return result;
+		}
+
+		protected System.Type[] GetResultTypes()
+		{
+			return ResultTypes.Select(t => t.ReturnedClass).ToArray();
 		}
 
 		/// <summary>
@@ -1872,7 +1877,8 @@ namespace NHibernate.Loader
 						result,
 						ResultRowAliases,
 						queryParameters.ResultTransformer,
-						IncludeInResultRow)
+						IncludeInResultRow,
+						GetResultTypes())
 					: transformer.UntransformToTuples(result)
 				);
 		}

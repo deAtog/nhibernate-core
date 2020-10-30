@@ -308,7 +308,7 @@ namespace NHibernate.Loader.Hql
 				for (int i = 0; i < results.Count; i++)
 				{
 					var row = (object[]) results[i];
-					object result = transformer.TransformTuple(row, _queryReturnAliases);
+					object result = transformer.TransformTuple(row, _queryReturnAliases, GetResultTypes());
 					results[i] = result;
 				}
 

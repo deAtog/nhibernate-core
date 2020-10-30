@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Data.Common;
-
+using System.Linq;
 using NHibernate.Engine;
 using NHibernate.Event;
 using NHibernate.Exceptions;
@@ -235,7 +235,9 @@ namespace NHibernate.Impl
 
 						if (_resultTransformer != null)
 						{
-							_currentResult = _resultTransformer.TransformTuple(currentResults, _returnAliases);
+							System.Type[] types = _types.Select(t => t.ReturnedClass).ToArray();
+
+							_currentResult = _resultTransformer.TransformTuple(currentResults, _returnAliases, types);
 						}
 						else
 						{

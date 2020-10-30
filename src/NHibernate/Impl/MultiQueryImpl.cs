@@ -512,7 +512,7 @@ namespace NHibernate.Impl
 			for (var j = 0; j < source.Count; j++)
 			{
 				var row = source[j] as object[] ?? new[] {source[j]};
-				source[j] = resultTransformer.TransformTuple(row, null);
+				source[j] = resultTransformer.TransformTuple(row, null, null);
 			}
 
 			return resultTransformer.TransformList(source);

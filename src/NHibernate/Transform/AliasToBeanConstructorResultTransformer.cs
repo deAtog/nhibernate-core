@@ -18,7 +18,7 @@ namespace NHibernate.Transform
 			this.constructor = constructor;
 		}
 
-		public object TransformTuple(object[] tuple, string[] aliases)
+		public object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 		{
 			try
 			{

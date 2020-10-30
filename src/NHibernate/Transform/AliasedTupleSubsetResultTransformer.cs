@@ -36,7 +36,7 @@ namespace NHibernate.Transform
 			return includeInTransform;
 		}
 
-		public abstract object TransformTuple(object[] tuple, string[] aliases);
+		public abstract object TransformTuple(object[] tuple, string[] aliases, System.Type[] types);
 		public abstract IList TransformList(IList collection);
 	}
 }

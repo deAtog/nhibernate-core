@@ -197,7 +197,7 @@ namespace NHibernate.Loader
 			var result = forcedResultTransformer == null
 					   ? await (GetResultColumnOrRowAsync(row, queryParameters.ResultTransformer, resultSet, session, cancellationToken)).ConfigureAwait(false)
 					   : forcedResultTransformer.TransformTuple(await (GetResultRowAsync(row, resultSet, session, cancellationToken)).ConfigureAwait(false),
-																ResultRowAliases);
+																ResultRowAliases, GetResultTypes());
 
 			queryCacheResultBuilder?.AddRow(result, row, collections);
 

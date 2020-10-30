@@ -303,7 +303,7 @@ namespace NHibernate.Test.SecondLevelCacheTests
 
 		public class CustomTransformer : IResultTransformer
 		{
-			public object TransformTuple(object[] tuple, string[] aliases)
+			public object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 			{
 				// Some db change the empty string to null, causing .ToString() to blow.
 				// https://stackoverflow.com/a/203536/1178314

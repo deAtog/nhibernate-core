@@ -15,8 +15,9 @@ namespace NHibernate.Transform
 		/// </summary>
 		/// <param name="tuple"></param>
 		/// <param name="aliases"></param>
+		/// <param name="types"></param>
 		/// <returns></returns>
-		object TransformTuple(object[] tuple, string[] aliases);
+		object TransformTuple(object[] tuple, string[] aliases, System.Type[] types);
 
 		/// <summary>
 		/// 

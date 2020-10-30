@@ -144,7 +144,7 @@ namespace NHibernate.Loader.Criteria
 													   ISessionImplementor session)
 		{
 			return ResolveResultTransformer(customResultTransformer)
-				.TransformTuple(GetResultRow(row, rs, session), ResultRowAliases);
+				.TransformTuple(GetResultRow(row, rs, session), ResultRowAliases, GetResultTypes());
 		}
 
 		protected override object[] GetResultRow(object[] row, DbDataReader rs, ISessionImplementor session)

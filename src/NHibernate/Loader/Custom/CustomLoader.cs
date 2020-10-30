@@ -320,7 +320,7 @@ namespace NHibernate.Loader.Custom
 				for (var i = 0; i < results.Count; i++)
 				{
 					var row = (object[]) results[i];
-					results[i] = resultTransformer.TransformTuple(row, returnAliases);
+					results[i] = resultTransformer.TransformTuple(row, returnAliases, GetResultTypes());
 				}
 
 				return resultTransformer.TransformList(results);

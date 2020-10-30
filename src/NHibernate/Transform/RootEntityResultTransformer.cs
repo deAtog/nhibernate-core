@@ -9,7 +9,7 @@ namespace NHibernate.Transform
 	{
 		internal static readonly RootEntityResultTransformer Instance = new RootEntityResultTransformer();
 
-		public object TransformTuple(object[] tuple, string[] aliases)
+		public object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 		{
 			return tuple[tuple.Length - 1];
 		}

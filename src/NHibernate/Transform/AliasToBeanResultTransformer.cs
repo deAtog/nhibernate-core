@@ -73,7 +73,7 @@ namespace NHibernate.Transform
 			return false;
 		}
 
-		public override object TransformTuple(object[] tuple, String[] aliases)
+		public override object TransformTuple(object[] tuple, String[] aliases, System.Type[] types)
 		{
 			if (aliases == null)
 			{

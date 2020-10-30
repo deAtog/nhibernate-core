@@ -11,7 +11,7 @@ namespace NHibernate.Transform
 
 		#region IResultTransformer Members
 
-		public object TransformTuple(object[] tuple, string[] aliases)
+		public object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 		{
 			return tuple.Length == 1 ? tuple[0] : tuple;
 		}

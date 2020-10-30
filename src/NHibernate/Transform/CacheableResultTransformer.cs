@@ -206,11 +206,11 @@ namespace NHibernate.Transform
 			InitializeTransformer(includeInTuple, GetIncludeInTransform(transformer, aliases, includeInTuple));
 		}
 
-		public object TransformTuple(object[] tuple, string[] aliases)
+		public object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 		{
 			if (_includeInTuple == null)
 				throw new InvalidOperationException("This transformer is not initialized");
-			return _actualTransformer.TransformTuple(Index(tuple), null);
+			return _actualTransformer.TransformTuple(Index(tuple), null, types);
 		}
 
 		/// <summary>
@@ -225,11 +225,12 @@ namespace NHibernate.Transform
 		/// <param name="aliases">The aliases that correspond to the untransformed tuple.</param>
 		/// <param name="transformer">The transformer for the re-transformation.</param>
 		/// <param name="includeInTuple"></param>
+		/// <param name="types"></param>
 		/// <returns>transformedResults, with each element re-transformed (if necessary).</returns>
 		public IList RetransformResults(IList transformedResults,
 		                                string[] aliases,
 		                                IResultTransformer transformer,
-		                                bool[] includeInTuple)
+		                                bool[] includeInTuple, System.Type[] types)
 		{
 			if (transformer == null)
 				throw new ArgumentNullException(nameof(transformer));
@@ -266,7 +267,8 @@ namespace NHibernate.Transform
 						transformedResults[i],
 						_tupleSubsetLength == 1
 						);
-					transformedResults[i] = transformer.TransformTuple(tuple, aliasesToUse);
+
+					transformedResults[i] = transformer.TransformTuple(tuple, aliasesToUse, types);
 				}
 			}
 

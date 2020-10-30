@@ -126,7 +126,7 @@ namespace NHibernate.Test.NHSpecificTest.NH2673
 
 		private class BlogAuthorTransformer : IResultTransformer
 		{
-			public object TransformTuple(object[] tuple, string[] aliases)
+			public object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 			{
 				return new BlogAuthorDto { BlogName = tuple[0].ToString(), AuthorName = tuple[1].ToString() };
 			}

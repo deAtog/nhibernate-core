@@ -24,7 +24,7 @@ namespace NHibernate.Test.QueryTest
 			_wasTransformListCalled = false;
 		}
 
-		public object TransformTuple(object[] tuple, string[] aliases)
+		public object TransformTuple(object[] tuple, string[] aliases, System.Type[] types)
 		{
 			_wasTransformTupleCalled = true;
 			return tuple;
